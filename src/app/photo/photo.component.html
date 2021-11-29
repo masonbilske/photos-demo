@@ -1,0 +1,10 @@
+<div class="photo">
+  <h1>Selected photo</h1>
+  <ng-container *ngIf="photo$ | async as photo; else loading">
+    <img [src]="photo.data" />
+  </ng-container>
+  <ng-template #loading> Loading... </ng-template>
+  <div class="photo__back">
+    <button type="button" [routerLink]="['/photos']">Back to photos</button>
+  </div>
+</div>

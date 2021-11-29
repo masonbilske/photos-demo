@@ -1,0 +1,16 @@
+<div class="photos">
+  <div class="photos__heading">
+    <h1>Random photos</h1>
+  </div>
+  <div class="photos__container">
+    <ng-container *ngIf="loading$ | async; else loaded">
+      Loading...
+    </ng-container>
+    <ng-template #loaded>
+      <ng-container *ngFor="let photo of photos$ | async">
+        <img [src]="photo.data" [routerLink]="['/photo', photo.id]" />
+      </ng-container>
+      <ng-template #loading> Loading... </ng-template>
+    </ng-template>
+  </div>
+</div>
